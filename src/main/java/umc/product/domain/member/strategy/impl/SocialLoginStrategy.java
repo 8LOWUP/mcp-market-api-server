@@ -56,14 +56,6 @@ public class SocialLoginStrategy implements LoginStrategy {
         return memberConverter.toLoginMemberResponse(member, tokenInfo, member.getRole());
     }
 
-    @Override
-    public MemberLoginResponse login(
-            SocialMemberClient client,
-            AdminLoginRequest request
-    ) {
-        throw new RestApiException(UNSUPPORTED_LOGIN_TYPE);
-    }
-
     private TokenInfo generateToken(Member member) {
         return jwtProvider.generateToken(member.getId().toString(), member.getRole().toString());
     }

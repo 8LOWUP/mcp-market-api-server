@@ -1,17 +1,13 @@
 package umc.product.domain.member.serviceImpl.member;
 
 import umc.product.domain.member.entity.Member;
-import umc.product.domain.member.entity.MemberLoginInfo;
 import umc.product.domain.member.entity.enums.LoginType;
 import umc.product.domain.member.dto.response.member.auth.MemberCreateTokenResponse;
 import umc.product.domain.member.dto.response.member.common.MemberIdResponse;
 import umc.product.domain.member.dto.response.member.auth.MemberLoginResponse;
-import umc.product.domain.member.entity.enums.Status;
-import umc.product.domain.member.mapper.MemberInfoMapper;
 import umc.product.domain.member.repository.querydsl.MemberDslRepository;
 import umc.product.domain.member.service.member.MemberAuthService;
 import umc.product.domain.member.strategy.context.LoginContext;
-import umc.product.domain.semester.entity.SemesterPart;
 import umc.product.global.common.exception.RestApiException;
 import umc.product.domain.member.status.AuthErrorStatus;
 import umc.product.global.config.security.jwt.JwtProvider;
@@ -19,8 +15,6 @@ import umc.product.global.config.security.jwt.TokenInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 import static umc.product.domain.member.status.MemberErrorStatus.DUPLICATED_CLIENT_ID;
 
@@ -34,26 +28,6 @@ public class MemberAuthServiceImpl implements MemberAuthService {
     private final LoginContext loginContext;
 
     private final MemberInfoMapper memberInfoMapper;
-
-    @Override
-    @Transactional
-    public Member signUp(
-            String clientId,
-            Member member,
-            List<SemesterPart> semesterPartList,
-            String avatarUrl) {
-        if(member.getMemberLoginInfo() != null) member.getMemberLoginInfo().updateLoginId(clientId);
-        else {
-            MemberLoginInfo memberLoginInfo = memberInfoMapper.toMemberInfo(clientId, null, member);
-            member.setMemberLoginInfo(memberLoginInfo);
-        }
-        if(!semesterPartList.isEmpty()) {
-            member.addSemesterPart(semesterPartList);
-        }
-        member.setStatus(Status.ACTIVE);
-        member.setAvatarUrl(avatarUrl);
-        return member;
-    }
 
     // 소셜 로그인을 수행하는 함수
     @Override
@@ -113,13 +87,6 @@ public class MemberAuthServiceImpl implements MemberAuthService {
         member.delete();
 
         return new MemberIdResponse(member.getId());
-    }
-
-    @Override
-    public void verifyClientId(String clientId) {
-        if(memberDslRepository.existsMemberByClientId(clientId)) {
-            throw new RestApiException(DUPLICATED_CLIENT_ID);
-        }
     }
 
 }

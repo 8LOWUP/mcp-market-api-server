@@ -29,6 +29,8 @@ public class Member extends BaseEntity {
 
     private String email;
 
+    private String clientId;
+
     @Enumerated(EnumType.STRING)
     private LoginType loginType;
 
@@ -41,12 +43,6 @@ public class Member extends BaseEntity {
 
     public void changeRole(Role role) {
         this.role = role;
-    }
-
-    public void updateProfile(MemberSignUpRequest request) {
-        this.name = request.name();
-        this.email = request.email();
-        this.loginType =request.loginType();
     }
 
 }

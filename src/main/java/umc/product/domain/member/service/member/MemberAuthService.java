@@ -5,16 +5,11 @@ import umc.product.domain.member.dto.response.member.common.MemberIdResponse;
 import umc.product.domain.member.dto.response.member.auth.MemberLoginResponse;
 import umc.product.domain.member.entity.Member;
 import umc.product.domain.member.entity.enums.LoginType;
-import umc.product.domain.semester.entity.SemesterPart;
-import umc.product.domain.semester.entity.SemesterPosition;
 
 import java.util.List;
 
 public interface MemberAuthService {
-    Member signUp(String clientId,
-                  Member member,
-                  List<SemesterPart> semesterPartList,
-                  String avatarUrl);
+
     // 소셜 로그인
     MemberLoginResponse socialLogin(final String accessToken,
                                     LoginType loginType);

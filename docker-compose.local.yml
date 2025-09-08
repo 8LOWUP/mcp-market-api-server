@@ -1,11 +1,12 @@
-version: '3.8'
-
 services:
   mysql:
-    container_name: mysql-umc-local
+    container_name: mysql-mcp-market-local
     image: mysql:8.0
     ports:
-      - ${MYSQL_OUTER_PORT}:${MYSQL_INNER_PORT}
+      - target: ${MYSQL_INNER_PORT}
+        published: ${MYSQL_OUTER_PORT}
+        protocol: tcp
+        host_ip: 0.0.0.0
     environment:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}
@@ -13,24 +14,27 @@ services:
       - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
     command: --default-authentication-plugin=mysql_native_password
     networks:
-      umc_local_network:
+      mm_local_network:
         ipv4_address: ${NETWORK_MYSQL_IP}
     restart: always
 
   redis:
-    container_name: redis-umc-local
+    container_name: redis-mcp-market-local
     image: redis:latest
     ports:
-      - ${REDIS_OUTER_PORT}:${REDIS_INNER_PORT}
+      - target: ${REDIS_INNER_PORT}
+        published: ${REDIS_OUTER_PORT}
+        protocol: tcp
+        host_ip: 0.0.0.0
     command: redis-server --requirepass ${REDIS_PASSWORD}
     networks:
-      umc_local_network:
+      mm_local_network:
         ipv4_address: ${NETWORK_REDIS_IP}
     restart: always
 
 networks:
-  umc_local_network:
-    name: umc_local_network
+  mm_local_network:
+    name: mm_local_network
     driver: bridge
     internal: false
     ipam:
