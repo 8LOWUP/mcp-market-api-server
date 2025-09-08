@@ -16,7 +16,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import static umc.product.domain.member.status.MemberErrorStatus.DUPLICATED_CLIENT_ID;
 
 @Service
 @RequiredArgsConstructor
@@ -26,8 +25,6 @@ public class MemberAuthServiceImpl implements MemberAuthService {
 
     public final JwtProvider jwtTokenProvider;
     private final LoginContext loginContext;
-
-    private final MemberInfoMapper memberInfoMapper;
 
     // 소셜 로그인을 수행하는 함수
     @Override

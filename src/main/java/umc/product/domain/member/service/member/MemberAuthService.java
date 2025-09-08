@@ -21,6 +21,4 @@ public interface MemberAuthService {
     // 회원 탈퇴
     MemberIdResponse withdrawal(Member member);
 
-    void verifyClientId(String clientId);
-
 }

@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import umc.product.domain.member.client.SocialMemberClient;
 import umc.product.domain.member.converter.response.MemberConverter;
 import umc.product.domain.member.dto.client.SocialLoginResponse;
-import umc.product.domain.member.dto.request.admin.auth.AdminLoginRequest;
 import umc.product.domain.member.dto.response.member.auth.MemberLoginResponse;
 import umc.product.domain.member.entity.Member;
 import umc.product.domain.member.repository.querydsl.MemberDslRepository;

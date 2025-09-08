@@ -4,12 +4,10 @@ import umc.product.domain.member.client.SocialMemberClient;
 import umc.product.domain.member.client.spec.AppleMemberClient;
 import umc.product.domain.member.client.spec.GoogleMemberClient;
 import umc.product.domain.member.client.spec.KakaoMemberClient;
-import umc.product.domain.member.dto.request.admin.auth.AdminLoginRequest;
 import umc.product.domain.member.entity.enums.LoginType;
 import umc.product.domain.member.dto.response.member.auth.MemberLoginResponse;
 import umc.product.domain.member.strategy.LoginStrategy;
 import umc.product.domain.member.strategy.handler.LoginHandler;
-import umc.product.domain.member.strategy.impl.InternalLoginStrategy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -57,8 +55,6 @@ public class LoginContext {
                 strategyMap.put(LoginType.KAKAO, strategy);
                 strategyMap.put(LoginType.APPLE, strategy);
                 strategyMap.put(LoginType.GOOGLE, strategy);
-            } else if (strategy instanceof InternalLoginStrategy){        //internal
-                strategyMap.put(LoginType.INTERNAL, strategy);
             }
         });
 
@@ -99,16 +95,5 @@ public class LoginContext {
             throw new RestApiException(UNSUPPORTED_LOGIN_TYPE);
         }
         return strategy.login(clientMap.get(loginType).getClient(), accessToken);
-    }
-
-    public MemberLoginResponse executeStrategy(
-            AdminLoginRequest request
-    ) {
-        LoginType loginType = LoginType.INTERNAL;
-        LoginStrategy strategy = clientMap.get(loginType).getStrategy();
-        if (strategy == null) {
-            throw new RestApiException(UNSUPPORTED_LOGIN_TYPE);
-        }
-        return strategy.login(null, request);
     }
 }

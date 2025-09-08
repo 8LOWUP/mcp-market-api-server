@@ -24,7 +24,7 @@ public class MemberDslRepositoryImpl implements MemberDslRepository {
 
     @Override
     public boolean existById(Long memberId) {
-        return jpaQueryaFactory
+        return jpaQueryFactory
                 .selectFrom(qMember)
                 .where(qMember.id.eq(memberId))
                 .fetchFirst() != null;
@@ -72,15 +72,5 @@ public class MemberDslRepositoryImpl implements MemberDslRepository {
                                             qMember.loginType.eq(loginType)
                                     )
                                     .fetchOne());
-    }
-
-    @Override
-    public boolean existsMemberByClientId(String clientId) {
-
-        return jpaQueryFactory
-                .selectOne()
-                .from(qMember)
-                .where(qMember.clientId.eq(clientId))
-                .fetchFirst() != null;
     }
 }
