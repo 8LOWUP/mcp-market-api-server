@@ -1,9 +1,5 @@
 package umc.product.global.config.security;
 
-import umc.product.domain.member.serviceImpl.member.MemberServiceImpl;
-import umc.product.global.config.security.auth.CustomAccessDeniedHandler;
-import umc.product.global.config.security.jwt.JwtAuthenticationFilter;
-import umc.product.global.config.security.jwt.JwtExceptionFilter;
 import umc.product.global.config.security.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

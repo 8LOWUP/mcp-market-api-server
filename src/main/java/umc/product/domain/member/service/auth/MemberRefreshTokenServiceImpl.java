@@ -1,16 +1,12 @@
-package umc.product.domain.member.serviceImpl.member;
+package umc.product.domain.member.service.auth;
 
 import io.jsonwebtoken.Claims;
-import org.springframework.data.redis.core.RedisTemplate;
 import umc.product.domain.member.entity.RefreshToken;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.product.domain.member.repository.redis.MemberRedisRepository;
-import umc.product.domain.member.service.member.MemberRefreshTokenService;
 import umc.product.global.config.security.jwt.JwtProvider;
-
-import java.util.concurrent.TimeUnit;
 
 @Service
 @RequiredArgsConstructor

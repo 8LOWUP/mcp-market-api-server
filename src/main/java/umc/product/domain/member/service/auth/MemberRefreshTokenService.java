@@ -1,4 +1,4 @@
-package umc.product.domain.member.service.member;
+package umc.product.domain.member.service.auth;
 
 import io.jsonwebtoken.Claims;
 import umc.product.domain.member.entity.RefreshToken;

@@ -1,12 +1,10 @@
-package umc.product.domain.member.service.member;
+package umc.product.domain.member.service.auth;
 
 import umc.product.domain.member.dto.response.member.auth.MemberCreateTokenResponse;
 import umc.product.domain.member.dto.response.member.common.MemberIdResponse;
 import umc.product.domain.member.dto.response.member.auth.MemberLoginResponse;
 import umc.product.domain.member.entity.Member;
 import umc.product.domain.member.entity.enums.LoginType;
-
-import java.util.List;
 
 public interface MemberAuthService {
 

@@ -1,12 +1,5 @@
 package umc.product.global.config.security.auth;
 
-import umc.product.domain.member.entity.Member;
-import umc.product.domain.member.serviceImpl.member.MemberServiceImpl;
-import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
-
 /*@Service
 @RequiredArgsConstructor
 public class PrincipalDetailsService implements UserDetailsService {

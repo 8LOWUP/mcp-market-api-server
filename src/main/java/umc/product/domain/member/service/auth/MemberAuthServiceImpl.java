@@ -1,4 +1,4 @@
-package umc.product.domain.member.serviceImpl.member;
+package umc.product.domain.member.service.auth;
 
 import umc.product.domain.member.entity.Member;
 import umc.product.domain.member.entity.enums.LoginType;
@@ -6,7 +6,6 @@ import umc.product.domain.member.dto.response.member.auth.MemberCreateTokenRespo
 import umc.product.domain.member.dto.response.member.common.MemberIdResponse;
 import umc.product.domain.member.dto.response.member.auth.MemberLoginResponse;
 import umc.product.domain.member.repository.querydsl.MemberDslRepository;
-import umc.product.domain.member.service.member.MemberAuthService;
 import umc.product.domain.member.strategy.context.LoginContext;
 import umc.product.global.common.exception.RestApiException;
 import umc.product.domain.member.status.AuthErrorStatus;

@@ -1,9 +1,8 @@
-package umc.product.domain.member.serviceImpl.member;
+package umc.product.domain.member.service.member;
 
 import jakarta.transaction.Transactional;
 import umc.product.domain.member.entity.Member;
 import umc.product.domain.member.repository.querydsl.MemberDslRepository;
-import umc.product.domain.member.service.member.MemberService;
 import umc.product.global.common.exception.RestApiException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
