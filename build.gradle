@@ -68,6 +68,15 @@ dependencies {
 	//json path
 	implementation 'com.jayway.jsonpath:json-path:2.6.0'
 	implementation 'com.auth0:java-jwt:3.18.2'
+
+	//google gemini
+	implementation 'com.google.genai:google-genai:1.15.0'
+
+	//OpenAI
+	implementation 'com.openai:openai-java:3.5.0'
+
+	//Anthropic
+	implementation 'com.anthropic:anthropic-java:2.6.0'
 }
 
 tasks.named('test') {
