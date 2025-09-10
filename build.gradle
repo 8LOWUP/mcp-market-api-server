@@ -70,10 +70,10 @@ dependencies {
 	implementation 'com.auth0:java-jwt:3.18.2'
 
     // Bucket4j Core
-    implementation 'io.github.bucket4j:bucket4j-core:8.10.1'
+	implementation 'com.bucket4j:bucket4j-core:8.7.1'
 
-    // Bucket4j Redis 연동 (Spring Data Redis 기반)
-    implementation 'io.github.bucket4j:bucket4j-redis-spring-data:8.10.1'
+	// Redis 기반의 Bucket4j 확장
+	implementation 'com.bucket4j:bucket4j-redis:8.7.1'
 }
 
 tasks.named('test') {
