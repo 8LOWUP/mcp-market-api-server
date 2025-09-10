@@ -1,6 +1,6 @@
 package com.mcphub.domain.member.dto.response.member.auth;
 
-import com.mcphub.domain.member.entity.enums.Role;
+import com.mcphub.global.config.security.auth.enums.Role;
 import lombok.Builder;
 
 @Builder

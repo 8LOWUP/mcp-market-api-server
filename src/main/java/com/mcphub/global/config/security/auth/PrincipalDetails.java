@@ -1,6 +1,7 @@
 package com.mcphub.global.config.security.auth;
 
 import com.mcphub.domain.member.entity.Member;
+import com.mcphub.global.config.security.auth.dto.AuthMember;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,7 +16,7 @@ import java.util.Collection;
 @Getter
 @AllArgsConstructor // 생성자를 만들어줌
 public class PrincipalDetails implements UserDetails {
-    private Member member;
+    private AuthMember member;
     public BCryptPasswordEncoder encodePwd() {
         return new BCryptPasswordEncoder();
     }

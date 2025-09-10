@@ -1,7 +1,5 @@
-package com.mcphub.domain.member.entity.enums;
+package com.mcphub.global.config.security.auth.enums;
 
-import jakarta.persistence.AttributeConverter;
-import jakarta.persistence.Converter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

@@ -3,7 +3,7 @@ package com.mcphub.global.config.security;
 import org.springframework.http.MediaType;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import com.mcphub.domain.member.entity.enums.Role;
+import com.mcphub.global.config.security.auth.enums.Role;
 import com.mcphub.domain.member.service.member.MemberService;
 import com.mcphub.global.config.security.auth.CustomAccessDeniedHandler;
 import com.mcphub.global.config.security.jwt.JwtAuthenticationFilter;

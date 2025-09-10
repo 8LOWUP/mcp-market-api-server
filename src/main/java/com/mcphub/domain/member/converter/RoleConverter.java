@@ -2,7 +2,7 @@ package com.mcphub.domain.member.converter;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
-import com.mcphub.domain.member.entity.enums.Role;
+import com.mcphub.global.config.security.auth.enums.Role;
 
 @Converter(autoApply = true)
 public class RoleConverter implements AttributeConverter<Role, Integer> {

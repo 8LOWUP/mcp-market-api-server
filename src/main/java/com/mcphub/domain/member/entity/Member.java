@@ -2,7 +2,7 @@ package com.mcphub.domain.member.entity;
 
 import com.mcphub.domain.member.converter.RoleConverter;
 import com.mcphub.domain.member.entity.enums.LoginType;
-import com.mcphub.domain.member.entity.enums.Role;
+import com.mcphub.global.config.security.auth.enums.Role;
 import com.mcphub.domain.member.entity.enums.Status;
 import jakarta.persistence.*;
 import lombok.*;
