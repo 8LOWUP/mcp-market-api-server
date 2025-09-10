@@ -6,4 +6,6 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class WorkspaceAdviser {
+    public Object createWorkspace(Object member) {
+    }
 }

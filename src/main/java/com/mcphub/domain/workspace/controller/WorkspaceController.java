@@ -24,9 +24,9 @@ public class WorkspaceController {
     })
     @PostMapping()
     public BaseResponse<?> createWorkspace(
-            @CurrentMember
+            @CurrentMember Object member
     ) {
-        return BaseResponse.onSuccess(workspaceAdviser.createWorkspace());
+        return BaseResponse.onSuccess(workspaceAdviser.createWorkspace(member));
     }
 
     @Operation(summary = "워크스페이스 목록 조회 API", description = "워크스페이스 목록을 조회할 때 사용하는 API")
