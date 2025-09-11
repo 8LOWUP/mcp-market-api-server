@@ -1,11 +1,11 @@
 package com.mcphub.global.util;
 
-import lombok.experimental.UtilityClass;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 
-@UtilityClass
+@Component
 public class SecurityUtils {
     public String getUserId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
