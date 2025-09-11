@@ -1,8 +1,11 @@
 package com.mcphub.domain.workspace.controller;
 
 import com.mcphub.domain.workspace.adviser.WorkspaceAdviser;
+import com.mcphub.domain.workspace.dto.WorkspaceCreateRequest;
+import com.mcphub.domain.workspace.dto.WorkspaceCreateResponse;
 import com.mcphub.global.common.base.BaseResponse;
 import com.mcphub.global.config.security.auth.CurrentMember;
+import com.mcphub.global.util.SecurityUtils;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -23,10 +26,10 @@ public class WorkspaceController {
             @ApiResponse(responseCode = "", description = "")
     })
     @PostMapping()
-    public BaseResponse<?> createWorkspace(
-            @CurrentMember Object member
-    ) {
-        return BaseResponse.onSuccess(workspaceAdviser.createWorkspace(member));
+    public BaseResponse<WorkspaceCreateResponse> createWorkspace(
+            @RequestBody WorkspaceCreateRequest request
+            ) {
+        return BaseResponse.onSuccess(workspaceAdviser.createWorkspace(request));
     }
 
     @Operation(summary = "워크스페이스 목록 조회 API", description = "워크스페이스 목록을 조회할 때 사용하는 API")
@@ -43,7 +46,9 @@ public class WorkspaceController {
             @ApiResponse(responseCode = "", description = "")
     })
     @GetMapping(path = "/{workspaceId}")
-    public BaseResponse<?> getWorkspace() {
+    public BaseResponse<?> getWorkspace(
+            @PathVariable("workspaceId") Long workspaceId
+    ) {
         return null;
     }
 
