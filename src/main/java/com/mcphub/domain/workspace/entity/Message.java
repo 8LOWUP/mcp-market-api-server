@@ -5,6 +5,7 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "message")
@@ -12,9 +13,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 public class Message extends BaseEntity {
 
-    @Id
-    private String id;
+    @Transient
+    public static final String SEQUENCE_NAME = "message_sequence";
 
+    @Id
+    private Long id;
     private String workspaceId;
     private String message;
     private boolean senderType;
