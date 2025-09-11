@@ -14,8 +14,7 @@ import org.springframework.stereotype.Service;
 public class LlmTokenServiceImpl implements LlmTokenService {
     TokenValidatorManager tokenValidatorManager;
 
-    public LlmTokenResponse registerToken(String accessToken, LlmTokenRequest request) {
-        //tokenId 유효성 확인
+    public LlmTokenResponse registerToken(LlmTokenRequest request) {
         //llmToken 유효성 확인
         if (tokenValidatorManager.isInvalidToken(request.llmId(), request.llmToken()))
             throw new RestApiException(LlmErrorStatus.INVALID_LLM_TOKEN);
@@ -25,8 +24,7 @@ public class LlmTokenServiceImpl implements LlmTokenService {
         return new LlmTokenResponse(null, null);
     }
 
-    public LlmTokenResponse updateToken(String accessToken, LlmTokenRequest request) {
-        //tokenId 유효성 확인
+    public LlmTokenResponse updateToken(LlmTokenRequest request) {
         //llmToken 유효성 확인
         if (tokenValidatorManager.isInvalidToken(request.llmId(), request.llmToken()))
             throw new RestApiException(LlmErrorStatus.INVALID_LLM_TOKEN);

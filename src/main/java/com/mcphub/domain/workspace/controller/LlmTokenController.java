@@ -37,7 +37,7 @@ public class LlmTokenController {
             @RequestBody LlmTokenRequest request
     ) {
 
-        return BaseResponse.onSuccess(llmTokenAdviser.registerToken(accessToken, request));
+        return BaseResponse.onSuccess(llmTokenAdviser.registerToken(request));
     }
 
     @Operation(summary = "사용자 LLM Token 수정 API", description = "사용자의 LLM Token을 입력받아 수정하는 API 입니다")
@@ -53,9 +53,8 @@ public class LlmTokenController {
     })
     @PatchMapping(path = "/token")
     public BaseResponse<LlmTokenResponse> update_token(
-            @RequestHeader(value = "accessToken") String accessToken,
             @RequestBody LlmTokenRequest request
     ) {
-        return BaseResponse.onSuccess(llmTokenAdviser.updateToken(accessToken, request));
+        return BaseResponse.onSuccess(llmTokenAdviser.updateToken(request));
     }
 }

@@ -11,11 +11,11 @@ import org.springframework.stereotype.Component;
 public class LlmTokenAdviser {
     private final LlmTokenService llmTokenService;
 
-    public LlmTokenResponse registerToken(String accessToken, LlmTokenRequest request) {
-        return llmTokenService.registerToken(accessToken, request);
+    public LlmTokenResponse registerToken(LlmTokenRequest request) {
+        return llmTokenService.registerToken(request);
     }
 
-    public LlmTokenResponse updateToken(String accessToken, LlmTokenRequest request) {
-        return llmTokenService.updateToken(accessToken, request);
+    public LlmTokenResponse updateToken(LlmTokenRequest request) {
+        return llmTokenService.updateToken(request);
     }
 }
