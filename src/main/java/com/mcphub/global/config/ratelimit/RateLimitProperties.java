@@ -10,11 +10,11 @@ import java.util.List;
 
 @Setter
 @Getter
-@Component
+@ConfigurationProperties(prefix = "ratelimit")
 public class RateLimitProperties {
     private boolean enabled = true;
-    private int limit = 10;
-    private Duration period = Duration.ofSeconds(1);
+    private int limit = 1;
+    private Duration period = Duration.ofSeconds(10);
     private List<String> whitelistPaths = List.of("/actuator/**", "/swagger/**", "/v3/api-docs/**");
 
 }
