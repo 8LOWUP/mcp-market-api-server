@@ -4,7 +4,7 @@ import com.mcphub.domain.workspace.entity.enums.Llm;
 
 public record LlmResponse(
         Llm llmId,
-        String llmName,
+        String modelName,
         String llmProvider
 ) {
 }

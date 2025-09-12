@@ -21,13 +21,7 @@ public class LlmServiceImpl implements LlmService {
 
     @Override
     public List<LlmResponse> getLlmList() {
-        return Arrays.stream(Llm.values())
-                .map(llm -> new LlmResponse(
-                        llm,
-                        llm.name(),
-                        llm.getProvider()
-                ))
-                .collect(Collectors.toList());
+        return null;
     }
 
     public LlmTokenResponse registerToken(LlmTokenRequest request, Long userId) {

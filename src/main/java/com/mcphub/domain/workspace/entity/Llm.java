@@ -18,4 +18,5 @@ public class Llm extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private com.mcphub.domain.workspace.entity.enums.Llm llm;
+    private String modelName;
 }
