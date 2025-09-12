@@ -3,6 +3,7 @@ package com.mcphub.domain.workspace.adviser;
 import com.mcphub.domain.workspace.dto.request.LlmTokenRequest;
 import com.mcphub.domain.workspace.dto.response.LlmResponse;
 import com.mcphub.domain.workspace.dto.response.LlmTokenResponse;
+import com.mcphub.domain.workspace.entity.enums.Llm;
 import com.mcphub.domain.workspace.service.LlmService;
 import com.mcphub.global.util.SecurityUtils;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,11 @@ public class LlmAdviser {
 
     public List<LlmResponse> getLlmList() {
         return llmService.getLlmList();
+    }
+
+    public LlmTokenResponse getToken(Llm llmId) {
+        Long userId = securityUtils.getUserId();
+        return llmService.getToken(llmId, userId);
     }
 
     public LlmTokenResponse registerToken(LlmTokenRequest request) {

@@ -4,6 +4,7 @@ import com.mcphub.domain.workspace.adviser.LlmAdviser;
 import com.mcphub.domain.workspace.dto.request.LlmTokenRequest;
 import com.mcphub.domain.workspace.dto.response.LlmResponse;
 import com.mcphub.domain.workspace.dto.response.LlmTokenResponse;
+import com.mcphub.domain.workspace.entity.enums.Llm;
 import com.mcphub.global.common.base.BaseResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -23,10 +24,17 @@ import java.util.List;
 public class LlmController {
     private final LlmAdviser llmAdviser;
 
+    @GetMapping(path = "")
     public BaseResponse<List<LlmResponse>> getLlmList() {
         return BaseResponse.onSuccess(llmAdviser.getLlmList());
     }
 
+    @GetMapping(path = "/token/{llmId}")
+    public BaseResponse<LlmTokenResponse> getToken(
+            @PathVariable("llmId") Llm llmId
+    ) {
+        return BaseResponse.onSuccess(llmAdviser.getToken(llmId));
+    }
 
     @Operation(summary = "사용자 LLM Token 입력 API", description = "사용자의 LLM Token을 입력받아 저장하는 API 입니다")
     @ApiResponses({

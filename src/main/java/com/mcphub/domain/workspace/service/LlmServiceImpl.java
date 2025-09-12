@@ -24,6 +24,14 @@ public class LlmServiceImpl implements LlmService {
         return null;
     }
 
+    @Override
+    public LlmTokenResponse getToken(Llm llmId, Long userId) {
+        //llm token 존재 여부 확인
+        //llm token 반환
+
+        return null;
+    }
+
     public LlmTokenResponse registerToken(LlmTokenRequest request, Long userId) {
         //llmToken 유효성 확인
         if (tokenValidatorManager.isInvalidToken(request.llmId(), request.llmToken()))
