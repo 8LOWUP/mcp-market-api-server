@@ -1,6 +1,7 @@
 package com.mcphub.domain.workspace.service;
 
 import com.mcphub.domain.workspace.dto.request.LlmTokenRequest;
+import com.mcphub.domain.workspace.dto.response.LlmResponse;
 import com.mcphub.domain.workspace.dto.response.LlmTokenResponse;
 import com.mcphub.domain.workspace.entity.enums.Llm;
 import com.mcphub.domain.workspace.llm.tokenvalidator.TokenValidatorManager;
@@ -9,12 +10,27 @@ import com.mcphub.global.common.exception.RestApiException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
-public class LlmTokenServiceImpl implements LlmTokenService {
+public class LlmServiceImpl implements LlmService {
     TokenValidatorManager tokenValidatorManager;
 
-    public LlmTokenResponse registerToken(LlmTokenRequest request) {
+    @Override
+    public List<LlmResponse> getLlmList() {
+        return Arrays.stream(Llm.values())
+                .map(llm -> new LlmResponse(
+                        llm,
+                        llm.name(),
+                        llm.getProvider()
+                ))
+                .collect(Collectors.toList());
+    }
+
+    public LlmTokenResponse registerToken(LlmTokenRequest request, Long userId) {
         //llmToken 유효성 확인
         if (tokenValidatorManager.isInvalidToken(request.llmId(), request.llmToken()))
             throw new RestApiException(LlmErrorStatus.INVALID_LLM_TOKEN);
@@ -24,7 +40,7 @@ public class LlmTokenServiceImpl implements LlmTokenService {
         return new LlmTokenResponse(null, null);
     }
 
-    public LlmTokenResponse updateToken(LlmTokenRequest request) {
+    public LlmTokenResponse updateToken(LlmTokenRequest request, Long userId) {
         //llmToken 유효성 확인
         if (tokenValidatorManager.isInvalidToken(request.llmId(), request.llmToken()))
             throw new RestApiException(LlmErrorStatus.INVALID_LLM_TOKEN);
