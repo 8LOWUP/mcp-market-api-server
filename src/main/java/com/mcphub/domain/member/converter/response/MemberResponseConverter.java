@@ -11,6 +11,10 @@ public class MemberResponseConverter {
 	public SocialLoginResponse toSocialLoginResponse(TokenInfo token, MemberRM member) {
 		return new SocialLoginResponse(token.accessToken(), token.refreshToken(), member);
 	}
+
+	public SocialLoginResponse toRegenerateTokenResponse(TokenInfo token){
+		return new SocialLoginResponse(token.accessToken(), token.refreshToken());
+	}
 }
 
 
