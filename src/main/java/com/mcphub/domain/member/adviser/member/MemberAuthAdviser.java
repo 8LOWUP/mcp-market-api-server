@@ -9,7 +9,6 @@ import com.mcphub.domain.member.dto.response.readmodel.KakaoProfile;
 import com.mcphub.domain.member.dto.response.readmodel.MemberRM;
 import com.mcphub.domain.member.repository.redis.impl.MemberRedisRepositoryImpl;
 import com.mcphub.domain.member.service.auth.port.MemberCommandPort;
-import com.mcphub.global.common.base.BaseResponse;
 import com.mcphub.global.config.security.jwt.JwtProvider;
 import com.mcphub.global.config.security.jwt.TokenInfo;
 
