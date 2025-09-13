@@ -1,5 +1,6 @@
 package com.mcphub.domain.workspace.dto.request;
 
+import com.mcphub.domain.workspace.common.McpInfo;
 import lombok.Builder;
 
 import java.util.List;
@@ -7,6 +8,6 @@ import java.util.List;
 @Builder
 public record WorkspaceCreateRequest (
         String llmId,
-        List<String> mcpId,
-        String chat
+        List<McpInfo> mcps,
+        String chatRequest
 ) {}

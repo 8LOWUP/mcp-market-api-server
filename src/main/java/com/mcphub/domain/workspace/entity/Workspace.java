@@ -1,5 +1,6 @@
 package com.mcphub.domain.workspace.entity;
 
+import com.mcphub.domain.workspace.common.McpInfo;
 import com.mcphub.global.common.base.BaseEntity;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,15 +26,5 @@ public class Workspace extends BaseEntity {
     private String userId;  // bigint -> String
     private String title;   // text
 
-    // ================= MCP 배열 필드 =================
-    // MCP ID와 활성화 여부를 함께 저장
     private List<McpInfo> mcps = new ArrayList<>();
-
-    @Getter
-    @Setter
-    @Builder
-    public static class McpInfo {
-        private String mcpId;
-        private boolean active;
-    }
 }
