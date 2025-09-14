@@ -54,7 +54,6 @@ public class GptChatSender implements ChatSender {
             return response.body();
 
         } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
             return null;
         }
     }
