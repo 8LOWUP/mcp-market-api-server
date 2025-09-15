@@ -18,10 +18,10 @@ public class SequenceGeneratorService {
     // 사용 방법 예시 (Message 라는 엔티티 클래스가 있다고 가정)
     // private final SequenceGeneratorService sequenceGeneratorService;
     // public Message saveMessage(Message message) {
-    //        message.setId(sequenceGeneratorService.getNextSequence("message"));
+    //        message.setId(sequenceGeneratorService.getNextSequence(Message.SEQUENCE_NAME));
     //        return messageRepository.save(message);
     //    }
-    public long getNextSequence(String seqName) {
+    public Long getNextSequence(String seqName) {
         Counter counter = mongoTemplate.findAndModify(
                 Query.query(Criteria.where("_id").is(seqName)),
                 new Update().inc("seq", 1),

@@ -3,9 +3,8 @@ package com.mcphub.domain.workspace.controller;
 import com.mcphub.domain.workspace.adviser.WorkspaceAdviser;
 import com.mcphub.domain.workspace.dto.WorkspaceCreateRequest;
 import com.mcphub.domain.workspace.dto.WorkspaceCreateResponse;
-import com.mcphub.domain.workspace.dto.request.ChatRequest;
-import com.mcphub.domain.workspace.dto.response.ChatResponse;
 import com.mcphub.global.common.base.BaseResponse;
+import com.mcphub.global.config.security.auth.CurrentMember;
 import com.mcphub.global.util.SecurityUtils;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -70,11 +69,5 @@ public class WorkspaceController {
     public BaseResponse<?> deleteWorkspace() {
         return null;
     }
-
-    @PostMapping(path = "/{workspaceId}/chats")
-    public BaseResponse<ChatResponse> sendChat(
-            @PathVariable("workspaceId") Long workspaceId,
-            @RequestBody ChatRequest request
-            ) { return BaseResponse.onSuccess(workspaceAdviser.sendChat(workspaceId, request));}
 
 }
